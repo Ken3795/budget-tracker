@@ -1,10 +1,14 @@
-import sys
+
+import click
 from database import get_db
 from models import User, Transaction
 
-def main():
+def get_session():
     engine, session = get_db()
+    return session
 
+def main():
+    session = get_session()
     while True:
         print("\n📊 Budget Tracker CLI")
         print("1. Add User")
